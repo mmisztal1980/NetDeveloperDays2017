@@ -1,0 +1,36 @@
+﻿@model DemoApp.DTO.Station[]
+@{
+    ViewData["Title"] = "Stations";
+}
+<h2>@ViewData["Title"]</h2>
+
+@{
+    if (Model != null && Model.Length > 0)
+    {
+        <table id="stations-table" class="table table-striped">
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>λ [deg]</th>
+                <th>φ [deg]</th>
+            </tr>
+            @{
+                for (var i = 0; i < Model.Length; i++)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@Model[i].Id</td>
+                        <td><a href="@Url.Action("Sensors", "Stations", new { id = Model[i].Id })">@Model[i].Name</a></td>
+                        <td>@Model[i].Lon</td>
+                        <td>@Model[i].Lat</td>
+                    </tr>
+                }
+            }
+        </table>
+                }
+}
+
+<form action="@Url.Action("UpdateDevices", "Stations")" method="post">
+    <input id="update-stations-btn" type="submit" value="Update Stations" class="btn btn-default" />
+</form>

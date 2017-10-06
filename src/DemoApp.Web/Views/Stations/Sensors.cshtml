@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = $"Station {ViewBag.Id} - Sensors";
+}
+<h2>@ViewData["Title"]</h2>
+
+@{
+    if (ViewBag.Sensors != null)
+    {
+        <table class="table table-striped">
+            <tr>
+                <th>#</th>
+                <th>StationId</th>
+                <th>Sensor Type</th>
+            </tr>
+            @{
+                foreach (var svc in ViewBag.Sensors)
+                {
+                    <tr>
+                        <td>@svc.Id</td>
+                        <td>@svc.StationId</td>
+                        <td>@svc.Params["paramCode"]</td>
+                    </tr>
+                }
+            }
+        </table>
+                }
+}
+
+<a href=""
+   class="btn btn-default btn-primary"><i class="fa fa-backward"> Back</i></a>
