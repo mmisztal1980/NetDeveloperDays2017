@@ -6,4 +6,4 @@ services:
     volumes:
       - .:/demo-app-web
     working_dir: /demo-app-web
-    command: /bin/bash -c "dotnet restore --packages ./packages ./DemoApp.sln && dotnet publish -r debian.8-x64 ./src/DemoApp.Web/DemoApp.Web.csproj -c Release -o ../../artifacts/demo-app-web&& dotnet publish -r debian.8-x64 ./src/DemoApp.Migrator/DemoApp.Migrator.csproj -c Release -o ../../artifacts/demo-app-db-migrator"
+    command: /bin/bash -c "dotnet restore ./DemoApp.sln && dotnet publish ./DemoApp.sln -c Release -r debian.8-x6 -o ./obj/Docker/publish"

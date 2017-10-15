@@ -17,7 +17,7 @@ services:
     env_file:
       - ./docker-compose.env
     build:
-      context: ./src/DemoApp.Migrator
+      context: ./artifacts/demo-app-db-migrator
       dockerfile: Dockerfile
       args:
         source: .
@@ -27,11 +27,11 @@ services:
       - demo-app-db-migrator
     image: demo-app-web
     ports:
-      - 80
+      - 8080:80
     env_file:
       - ./docker-compose.env
     build:
-      context: ./src/DemoApp.Web
+      context: ./artifacts/demo-app-web
       dockerfile: Dockerfile
       args:
         source: .

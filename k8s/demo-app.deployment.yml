@@ -1,0 +1,46 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: demo-app-deployment
+spec:
+  replicas: 5
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+      maxSurge: 2
+  template:
+    metadata:
+      labels:
+        app: demo-app
+        kind: mvc
+    spec:
+      imagePullSecrets:
+      - name: acr-registry-key
+      containers:
+      - name: demo-app
+        # (!) Pulling the latest image is not a good idea.
+        # - You never know which version is deployed, better to use concrete tags
+        # - If you fail to change the imagePullPolicy to 'Always', the latest version will not be pulled
+        image: cloudtechnologies.azurecr.io/demo-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /api/values
+            port: 80
+            httpHeaders:
+              - name: Content-Type
+                value: application/json
+          initialDelaySeconds: 10
+          periodSeconds: 5
+      - name: poc-kubectl-sidecar
+        image: lachlanevenson/k8s-kubectl
+        command:
+        - kubectl
+        - "proxy"
+        - "--port=8000"
+        ports:
+        - containerPort: 8000
