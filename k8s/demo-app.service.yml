@@ -12,4 +12,3 @@ spec:
       protocol: TCP
   selector:
     app: demo-app-web
-    version: '#{Build.BuildId}#'
