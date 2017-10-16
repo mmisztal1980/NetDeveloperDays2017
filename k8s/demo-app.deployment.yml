@@ -14,7 +14,7 @@ spec:
     metadata:
       labels:
         app: demo-app-web
-        version: #{Build.BuildId}#
+        version: '#{Build.BuildId}#'
     spec:
       imagePullSecrets:
       - name: netdevday-secret
