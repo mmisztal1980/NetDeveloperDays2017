@@ -27,7 +27,7 @@ services:
       - demo-app-db-migrator
     image: demo-app-web
     ports:
-      - 80
+      - 8080:80
     env_file:
       - ./docker-compose.env
     build:

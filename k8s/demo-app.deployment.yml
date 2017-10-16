@@ -13,23 +13,22 @@ spec:
   template:
     metadata:
       labels:
-        app: demo-app
-        kind: mvc
+        app: demo-app-web
     spec:
       imagePullSecrets:
-      - name: acr-registry-key
+      - name: netdevday-secret
       containers:
-      - name: demo-app
+      - name: demo-app-web
         # (!) Pulling the latest image is not a good idea.
         # - You never know which version is deployed, better to use concrete tags
         # - If you fail to change the imagePullPolicy to 'Always', the latest version will not be pulled
-        image: cloudtechnologies.azurecr.io/demo-app:latest
+        image: netdevdaydemo.azurecr.io/demo-app-web:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
         livenessProbe:
           httpGet:
-            path: /api/values
+            path: /Home
             port: 80
             httpHeaders:
               - name: Content-Type

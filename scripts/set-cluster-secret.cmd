@@ -1,0 +1,1 @@
+kubectl create secret docker-registry netdevday-secret --docker-server=netdevdaydemo.azurecr.io --docker-username=netdevdaydemo --docker-password=+WxC1Bx05+m/UmpbPA+U4Xc=a+Lcv/yP --docker-email=mmisztal1980@gmail.com
