@@ -33,6 +33,7 @@ spec:
                 configMapKeyRef:
                     name: 'demo-app-config'
                     key: 'demo-app.environment'
+        # (!) This environment does not permit the usage of ':' separator so you have to use '__' instead
             - name: 'ConnectionStrings__Database'
               valueFrom:
                 configMapKeyRef:

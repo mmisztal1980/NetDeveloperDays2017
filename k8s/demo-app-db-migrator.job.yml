@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: demo-app-db-migrator
+spec:
+  activeDeadlineSeconds: 100
+  template:
+    metadata:
+      name: demo-app-db-migrator
+    spec:
+      imagePullSecrets:
+      - name: netdevday-secret
+      containers:
+      - name: demo-app-db-migrator
+        image: netdevdaydemo.azurecr.io/demo-app-db-migrator:#{Build.BuildId}#
+        imagePullPolicy: Always
+        env:
+            - name: 'ASPNETCORE_ENVIRONMENT'
+              valueFrom:
+                configMapKeyRef:
+                    name: 'demo-app-config'
+                    key: 'demo-app.environment'
+        # (!) This environment does not permit the usage of ':' separator so you have to use '__' instead
+            - name: 'ConnectionStrings__Database'
+              valueFrom:
+                configMapKeyRef:
+                    name: 'demo-app-config'
+                    key: 'demo-app.connectionString'
+      restartPolicy: Never
+      backoffLimit: 5
