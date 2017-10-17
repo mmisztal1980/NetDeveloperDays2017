@@ -33,7 +33,7 @@ spec:
                 configMapKeyRef:
                     name: 'demo-app-config'
                     key: 'demo-app.environment'
-            - name: 'ConnectionStrings:Database'
+            - name: 'ConnectionStrings__Database'
               valueFrom:
                 configMapKeyRef:
                     name: 'demo-app-config'
