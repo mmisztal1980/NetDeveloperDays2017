@@ -24,6 +24,20 @@ spec:
         # - If you fail to change the imagePullPolicy to 'Always', the latest version will not be pulled
         image: netdevdaydemo.azurecr.io/demo-app-web:#{Build.BuildId}#
         imagePullPolicy: Always
+        # (!) Env Variables are retrieved from a config-map, and can be used to configure the
+        # ASP.NET Core application at runtime.
+        # Secretes should be stored using kubernetes secrets, as config-maps are readable in plain-text
+        env:
+            - name: 'ASPNETCORE_ENVIRONMENT'
+              valueFrom:
+                configMapKeyRef:
+                    name: 'demo-app-config'
+                    key: 'demo-app.environment'
+            - name: 'ConnectionStrings:Database'
+              valueFrom:
+                configMapKeyRef:
+                    name: 'demo-app-config'
+                    key: 'demo-app.connectionString'
         ports:
         - containerPort: 80
         livenessProbe:
