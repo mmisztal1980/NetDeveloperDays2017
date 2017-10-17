@@ -10,6 +10,8 @@ spec:
     spec:
       imagePullSecrets:
       - name: netdevday-secret
+      restartPolicy: Never
+      backoffLimit: 5
       containers:
       - name: demo-app-db-migrator
         image: netdevdaydemo.azurecr.io/demo-app-db-migrator:#{Build.BuildId}#
@@ -26,5 +28,3 @@ spec:
                 configMapKeyRef:
                     name: 'demo-app-config'
                     key: 'demo-app.connectionString'
-      restartPolicy: Never
-      backoffLimit: 5
