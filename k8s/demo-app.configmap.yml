@@ -6,4 +6,4 @@ metadata:
   namespace: default
 data:
   demo-app.environment: 'TEST'
-  demo-app.connectionString: 'Server=netdevday-pg.postgres.database.azure.com;Port=5432;Database=postgres;User Id=postgres@netdevday-pg;Password=H@lsink!;'
+  demo-app.connectionString: 'Server=netdevday-pg.postgres.database.azure.com;Port=5432;Database=postgres;User Id=postgres@netdevday-pg;Password=H@lsink!;SSL Mode=Require;Trust Server Certificate=true'
