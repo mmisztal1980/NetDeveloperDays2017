@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApp.Web", "src\DemoApp.Web\DemoApp.Web.csproj", "{ABC3ABC3-51F1-46ED-B24A-93418D8858A0}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A3B68AA9-DDF9-4556-BCEE-29331C2C728D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApp", "src\DemoApp\DemoApp.csproj", "{F8D07286-9521-4E8F-9B16-17C70E8A5FFD}"
 EndProject
@@ -13,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApp.Tests", "tests\Demo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApp.Migrator", "src\DemoApp.Migrator\DemoApp.Migrator.csproj", "{5954CDB7-E5EA-44FC-8878-94097DEE0A1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp.E2E.Tests", "tests\DemoApp.E2E.Tests\DemoApp.E2E.Tests.csproj", "{19D42920-58EB-4681-A0BF-714F21CB8D48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApp.E2E.Tests", "tests\DemoApp.E2E.Tests\DemoApp.E2E.Tests.csproj", "{19D42920-58EB-4681-A0BF-714F21CB8D48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{ABC3ABC3-51F1-46ED-B24A-93418D8858A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABC3ABC3-51F1-46ED-B24A-93418D8858A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABC3ABC3-51F1-46ED-B24A-93418D8858A0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3B68AA9-DDF9-4556-BCEE-29331C2C728D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3B68AA9-DDF9-4556-BCEE-29331C2C728D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3B68AA9-DDF9-4556-BCEE-29331C2C728D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3B68AA9-DDF9-4556-BCEE-29331C2C728D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F8D07286-9521-4E8F-9B16-17C70E8A5FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8D07286-9521-4E8F-9B16-17C70E8A5FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8D07286-9521-4E8F-9B16-17C70E8A5FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
